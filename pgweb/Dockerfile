@@ -14,4 +14,8 @@ RUN \
   rm -f pgweb_linux_amd64.zip
 
 EXPOSE 8081
-CMD ["/usr/bin/pgweb", "--sessions", "--bind=0.0.0.0", "--listen=8081"]
+
+ADD entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
+
+CMD ["/entrypoint.sh"]
